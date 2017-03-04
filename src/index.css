@@ -1,0 +1,55 @@
+html, body, div, section,
+article, header, ul, li, h1, h2, h3, h4, p {
+  display: block;
+  margin: 0;
+  padding:0;
+  list-style: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.article-section {
+  width: 400px;
+  height: 400px;
+  background-color: lightblue;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+}
+
+li {
+  display: flex;
+  flex-grow: 1;
+  background-color: lightgray;
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+li:first-of-type {
+  border-top-left-radius: 5px;
+}
+
+li:last-of-type {
+  border-top-right-radius: 5px;
+}
+
+li:hover {
+  background-color: gray;
+}
+
+tab-selected {
+  background-color: darkgray;
+}
+
+li h1 {
+  width: 100%;
+  text-align: center;
+}

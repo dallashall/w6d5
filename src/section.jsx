@@ -1,11 +1,13 @@
 import React from 'react';
 import Headers from './headers';
-class Tabs extends React.Component{
+
+class Section extends React.Component{
   constructor() {
     super();
     this.state = {
       index: 0
     };
+    this.articleData = this.props.tabData;
     this.headers = ["One", "Two", "Three"];
     this.changeIndex = this.changeIndex.bind(this);
   }
@@ -15,7 +17,8 @@ class Tabs extends React.Component{
     <section>
       <h3>{this.state.index}</h3>
       <Headers changeIndex={this.changeIndex}></Headers>
-      <article>
+      <article className="article-section">
+
       </article>
     </section>
     );
@@ -26,4 +29,4 @@ class Tabs extends React.Component{
   }
 }
 
-export default Tabs;
+export default Section;

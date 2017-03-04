@@ -8,17 +8,16 @@ class Headers extends React.Component{
   }
 
   change(e){
-    debugger;
-    this.props.changeIndex(e);
+    return () => this.props.changeIndex(e);
   }
 
   render() {
     return (
       <ul>
-        {this.headers.map((header, index) => {
+        {this.headers.map((header, idx) => {
           return (
           <li key={header+"-header"}>
-            <h1 onClick={this.changeIndex}>
+            <h1 onClick={this.changeIndex(idx)}>
               {header}
             </h1>
           </li>
