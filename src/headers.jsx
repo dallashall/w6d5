@@ -3,27 +3,30 @@ import React from 'react';
 class Headers extends React.Component{
   constructor() {
     super();
-    this.headers = ["One", "Two", "Three"];
-    this.changeIndex = this.change.bind(this);
+    this.selectPane = this.selectPane.bind(this);
   }
 
-  change(e){
-    return () => this.props.changeIndex(e);
+  selectPane(e){
+    return () => this.props.selectPane(e);
   }
 
   render() {
+    let selected = this.props.selectedPane;
+    let headers = this.props.panes.map((e, idx) => {
+      let title = e.title;
+      let classString = idx === selected ? 'tab-selected' : '';
+      return (
+        <li
+          key={"tab-" + idx}
+          className={classString}
+          onClick={this.selectPane(idx)}>
+          <h1>{title}</h1>
+        </li>
+      );
+    });
     return (
       <ul>
-        {this.headers.map((header, idx) => {
-          return (
-          <li key={header+"-header"}>
-            <h1 onClick={this.changeIndex(idx)}>
-              {header}
-            </h1>
-          </li>
-          );
-        })
-        }
+        {headers}
       </ul>
     );
   }

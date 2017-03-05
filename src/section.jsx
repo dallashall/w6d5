@@ -7,24 +7,27 @@ class Section extends React.Component{
     this.state = {
       index: 0
     };
-    this.articleData = this.props.tabData;
-    this.headers = ["One", "Two", "Three"];
-    this.changeIndex = this.changeIndex.bind(this);
+    this.selectPane = this.selectPane.bind(this);
   }
 
   render() {
+    let currentPane = this.props.panes[this.state.index];
     return (
-    <section>
-      <h3>{this.state.index}</h3>
-      <Headers changeIndex={this.changeIndex}></Headers>
-      <article className="article-section">
-
-      </article>
-    </section>
+      <section>
+        <h3>{this.state.index}</h3>
+        <Headers
+          selectPane={this.selectPane}
+          selectedPane={this.state.index}
+          panes={this.props.panes}>
+        </Headers>
+        <article className="article-section">
+          {currentPane.content}
+        </article>
+      </section>
     );
   }
 
-  changeIndex(index){
+  selectPane(index){
     this.setState({index});
   }
 }
